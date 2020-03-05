@@ -38,23 +38,27 @@
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <Movie/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import Movie from './components/Movie';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    Movie,
   },
 
   data: () => ({
     //
   }),
+
+  mounted() {
+    this.$store.dispatch('getMovies');
+  },
 };
 </script>
