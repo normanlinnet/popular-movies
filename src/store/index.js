@@ -7,10 +7,14 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     movies: [],
+    searchText: '',
   },
   mutations: {
     updateMovies(state, movies) {
       state.movies = movies;
+    },
+    updateSearchText(state, searchText) {
+      state.searchText = searchText;
     },
   },
   actions: {

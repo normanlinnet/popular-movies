@@ -5,34 +5,30 @@
       color="primary"
       dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+      <v-toolbar-title
+        style="width: 150px"
+        class="ml-0 pl-4 hidden-sm-and-down"
+      >
+        <span>Top Movies</span>
+      </v-toolbar-title>
+      <v-text-field
+        flat
+        solo-inverted
+        hide-details
+        prepend-inner-icon="mdi-magnify"
+        label="Search"
+        v-model="searchText"
+        v-on:keyup.native="onKeyup"
+      />
 
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="https://github.com/normanlinnet/popular-movies"
         target="_blank"
         text
       >
-        <span class="mr-2">Latest Release</span>
+        <span class="mr-2">Github</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
@@ -54,11 +50,17 @@ export default {
   },
 
   data: () => ({
-    //
+    searchText: '',
   }),
 
   mounted() {
     this.$store.dispatch('getMovies');
+  },
+
+  methods: {
+    onKeyup() {
+      this.$store.commit('updateSearchText', this.searchText);
+    },
   },
 };
 </script>
