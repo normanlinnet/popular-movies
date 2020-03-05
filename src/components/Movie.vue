@@ -1,29 +1,24 @@
 <template>
   <v-container>
     <v-row>
-      <v-card
-        class="mx-auto ma-4"
-        width="350"
-        @click="doSomething"
+      <Card
         v-for="movie in filteredmovies"
-        v-bind:key="movie.title"
-        hover
-      >
-        <v-img
-          class="white--text align-end"
-          height="200px"
-          :src="'https://image.tmdb.org/t/p/w400' + (movie.backdrop_path || '/wwemzKWzjKYJFfCeiB57q3r4Bcm.png')"
-        >
-          <v-card-title>{{ movie.title }}</v-card-title>
-        </v-img>
-      </v-card>
+        v-bind:key="movie.id"
+        :movie="movie"
+      />
     </v-row>
   </v-container>
 </template>
 
 <script>
+import Card from './Card';
+
 export default {
   name: 'Movie',
+
+  components: {
+    Card,
+  },
 
   data: () => ({
     //

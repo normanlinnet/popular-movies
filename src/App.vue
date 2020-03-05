@@ -54,6 +54,7 @@ export default {
   }),
 
   mounted() {
+    this.$store.dispatch('getGenrelist');
     this.$store.dispatch('getMovies');
   },
 
