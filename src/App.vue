@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import Movie from './components/Movie';
+import Movie from '@/components/Movie';
 
 export default {
   name: 'App',
