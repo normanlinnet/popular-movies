@@ -1,5 +1,7 @@
 # popular-movies
 
+[Demo Site](https://normanlinnet.github.io/popular-movies/)
+
 ## Project setup
 ```
 yarn install
